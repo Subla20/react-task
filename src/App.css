@@ -2,37 +2,88 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.AppHeader {
+  font-size: 32px;
+  font-weight: 600;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.taskBox {
+  width: 639px;
+  height: 32px;
+  border: 1px solid;
+  border-radius: 2px;
+  margin-right: 16px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.create:disabled {
+  width: 81px;
+  height: 32px;
+  background: #C4C4C4;
+  border: 0px;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+}
+
+.create {
+  width: 81px;
+  height: 32px;
+  background: #00A3FF;
+  border: 0px;
+  font-size: 16px;
+  font-weight: 500;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.imageR {
+  width: 400px;
+  height: 230.43px;
+  margin-top: 26px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.imageText {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.list {
+  margin-top: 27px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+
+.listItem {
+  text-align: left;
+  border-bottom: #D3D3D3 solid 1px;
+  padding-top: 9px;
+  padding-bottom: 12px;
+  width: 736px;
+}
+
+.check {
+  width: 20px;
+  height: 20px;
+}
+
+.checkLabel {
+  width: 59px;
+  height: 24px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.imageT {
+  float: right;
+  pointer-events: all;
+}
+
+ul {
+  padding-inline-start: 0;
+}
+
+.crossed-line {
+  text-decoration: line-through;
 }
