@@ -3,13 +3,16 @@ import React from 'react';
 import relax from './relax.svg';
 import trash from './trash.svg';
 
+var classNames = require('classnames');
+
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       value: '', 
       tasks: [],
-      toggle: true
+      toggle: true,
+      check: null
     };
 
     this.valueRef = React.createRef();
@@ -31,12 +34,18 @@ class App extends React.PureComponent {
     const remove = (id) => {
       const newA = this.state.tasks.filter(task => task !== id);
       this.setState({tasks: newA});
+      this.setState({check: false});
     };
 
-    const handleLater = (id, e) => {
-      e.target.classList.toggle("crossed-line");
+    const handleLater = (id) => {
+      this.setState({check: true});
       setTimeout(() => remove(id), 4000);
     }; 
+
+    var checkClass = classNames({
+      checkLabel : true,
+      crossedline: this.state.check
+    });
 
     const canSubmit = this.state.value.length === 0;
     const taskExists = this.state.tasks.length === 0;
@@ -66,8 +75,8 @@ class App extends React.PureComponent {
         <ul className='list'>
           {this.state.tasks.map((subItems) => {
             return <li key={subItems.id} className='listItem'>
-                <input type="checkbox" id="checkID" value={this.state.toggle} onChange={(e) => this.setState({ toggle: e.target.checked})} onClick={(e) => handleLater(subItems, e)} className='check' />
-                <label htmlFor="checkID" className='checkLabel'>{subItems}</label>
+                <input type="checkbox" id="checkID" value={this.state.toggle} onChange={(e) => this.setState({ toggle: e.target.checked})} onClick={() => handleLater(subItems)} className='check' />
+                <label htmlFor="checkID" className={checkClass}>{subItems}</label>
                 <img src={trash} className='imageT' alt="Trash Can" onClick={() => remove(subItems)} />
               </li>
           })}

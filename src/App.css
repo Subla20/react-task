@@ -84,6 +84,10 @@ ul {
   padding-inline-start: 0;
 }
 
-.crossed-line {
+.crossedline {
+  width: 59px;
+  height: 24px;
+  font-size: 20px;
+  font-weight: 400;
   text-decoration: line-through;
 }
